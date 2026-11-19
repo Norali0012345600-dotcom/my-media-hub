@@ -1,106 +1,99 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#090d18">
-  <meta name="description" content="MY MEDIA HUB — مركز ترفيه شخصي لاكتشاف المحتوى القانوني وتنظيم مكتبتك.">
-  <title>MY MEDIA HUB</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080b14"><meta name="description" content="MY MEDIA HUB 2.0 — مركزك الترفيهي الشخصي">
+<title>MY MEDIA HUB 2.0</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#" aria-label="الصفحة الرئيسية">
-        <span class="brand-mark">M</span>
-        <span><b>MY MEDIA HUB</b><small>مساحتك الترفيهية</small></span>
-      </a>
-      <button class="icon-btn" id="searchToggle" aria-label="فتح البحث">⌕</button>
-    </header>
+<div class="app">
+<header class="topbar">
+ <a class="brand" href="#"><span class="brand-icon">M</span><span><b>MY MEDIA HUB</b><small>YOUR PERSONAL UNIVERSE</small></span></a>
+ <button class="round-btn" id="searchOpen" aria-label="بحث">⌕</button>
+</header>
+<main>
+<section class="hero">
+ <div class="hero-copy"><span class="kicker">إصدار 2.0 · مساحة ترفيهك</span><h1>ليلتك تبدأ<br><em>من هنا.</em></h1><p>اكتشف محتوى مجانياً وقانونياً، ونظّم مكتبتك، وشغّل ملفاتك الشخصية في مكان واحد.</p>
+ <button class="btn primary" id="exploreBtn">اكتشف المكتبة <span>←</span></button></div>
+ <div class="hero-art"><div class="art-disc"></div><div class="art-card art-back">CINEMA<br><b>UNIVERSE</b></div><div class="art-card art-front"><span>NOW PLAYING</span><b>YOUR<br>STORY</b><i>✦</i></div></div>
+</section>
+<section class="search-wrap hidden" id="searchWrap"><input id="searchInput" type="search" placeholder="ابحث عن فيلم أو موسيقى أو بودكاست..."><button id="clearSearch">مسح</button></section>
+<section class="section">
+ <div class="section-title"><div><span class="kicker">اختَر مزاجك</span><h2>استكشف الأقسام</h2></div><span class="muted">06 أقسام</span></div>
+ <div class="chips" id="filters">
+  <button class="chip active" data-filter="all">الكل</button><button class="chip" data-filter="film">أفلام</button><button class="chip" data-filter="docs">وثائقيات</button><button class="chip" data-filter="music">موسيقى</button><button class="chip" data-filter="podcast">بودكاست</button><button class="chip" data-filter="video">فيديو</button>
+ </div>
+ <div class="media-grid" id="mediaGrid">
+  <article class="media-card" data-type="film" data-title="أفلام كلاسيكية وأرشيفية" data-description="اكتشف مجموعة من الأفلام والمواد الأرشيفية. افحص صفحة كل مادة لمعرفة حالة الحقوق والترخيص." data-source="Internet Archive" data-url="https://archive.org/details/movies" data-tone="violet"><div class="poster poster-one"><span class="poster-label">ARCHIVE PICKS</span><b>CLASSIC<br>CINEMA</b><small>سينما من الذاكرة</small></div><div class="card-meta"><div><b>أفلام كلاسيكية وأرشيفية</b><small>Internet Archive · أفلام</small></div><button class="save-btn" aria-label="إضافة للمفضلة">♡</button></div></article>
+  <article class="media-card" data-type="docs" data-title="وثائقيات الطبيعة والعلوم" data-description="قنوات ومجموعات وثائقية منشورة من جهات رسمية. تحقق من شروط كل فيديو." data-source="YouTube" data-url="https://www.youtube.com/" data-tone="green"><div class="poster poster-two"><span class="poster-label">DISCOVER</span><b>WILD<br>PLANET</b><small>الطبيعة · العلوم · العالم</small></div><div class="card-meta"><div><b>وثائقيات الطبيعة والعلوم</b><small>YouTube · وثائقيات</small></div><button class="save-btn" aria-label="إضافة للمفضلة">♡</button></div></article>
+  <article class="media-card" data-type="music" data-title="موسيقى مستقلة" data-description="اكتشف موسيقى مستقلة على Jamendo. قد تختلف حقوق الاستماع والتنزيل وإعادة الاستخدام." data-source="Jamendo" data-url="https://www.jamendo.com/" data-tone="orange"><div class="poster poster-three"><span class="poster-label">SOUND MOOD</span><b>INDIE<br>WAVES</b><small>اكتشف صوتاً جديداً</small></div><div class="card-meta"><div><b>موسيقى مستقلة</b><small>Jamendo · موسيقى</small></div><button class="save-btn" aria-label="إضافة للمفضلة">♡</button></div></article>
+  <article class="media-card" data-type="podcast" data-title="عالم البودكاست" data-description="تصفح البرامج والحلقات الصوتية عبر دليل Apple Podcasts." data-source="Apple Podcasts" data-url="https://podcasts.apple.com/" data-tone="pink"><div class="poster poster-four"><span class="poster-label">LISTEN CLOSE</span><b>VOICE<br>NOTES</b><small>أفكار تستحق الاستماع</small></div><div class="card-meta"><div><b>عالم البودكاست</b><small>Apple Podcasts · صوت</small></div><button class="save-btn" aria-label="إضافة للمفضلة">♡</button></div></article>
+  <article class="media-card" data-type="video" data-title="فيديوهات وقنوات رسمية" data-description="استكشف الفيديوهات المنشورة من أصحابها والقنوات الرسمية." data-source="YouTube" data-url="https://www.youtube.com/" data-tone="blue"><div class="poster poster-five"><span class="poster-label">TRENDING CHANNELS</span><b>VIDEO<br>WORLD</b><small>شاهد ما يلهمك</small></div><div class="card-meta"><div><b>فيديوهات وقنوات رسمية</b><small>YouTube · فيديو</small></div><button class="save-btn" aria-label="إضافة للمفضلة">♡</button></div></article>
+  <article class="media-card" data-type="film" data-title="أفلام مجانية على Plex" data-description="كتالوج مجاني مدعوم بالإعلانات في المناطق التي تتوفر فيها الخدمة. قد تختلف الإتاحة حسب البلد." data-source="Plex" data-url="https://www.plex.tv/watch-free/" data-tone="gold"><div class="poster poster-six"><span class="poster-label">FREE STREAMING</span><b>SCREEN<br>TIME</b><small>اكتشف ما يُعرض</small></div><div class="card-meta"><div><b>أفلام مجانية على Plex</b><small>Plex · سينما وتلفزيون</small></div><button class="save-btn" aria-label="إضافة للمفضلة">♡</button></div></article>
+ </div>
+ <p class="empty hidden" id="emptyState">لا توجد نتائج مطابقة. جرّب كلمة أخرى.</p>
+</section>
 
-    <main>
-      <section class="hero">
-        <div class="hero-glow"></div>
-        <p class="eyebrow">مركزك الترفيهي الشخصي</p>
-        <h1>كل ما تحبّه،<br><span>في مكان واحد.</span></h1>
-        <p class="hero-copy">اكتشف أفلاماً كلاسيكية، وثائقيات، موسيقى، بودكاست وفيديوهات من مصادر مجانية وقانونية.</p>
-        <a class="primary-btn" href="#discover">ابدأ الاستكشاف <span>←</span></a>
-        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-      </section>
+<section class="section catalog-section" id="catalog">
+ <div class="section-title"><div><span class="kicker">مكتبة الأفلام والمسلسلات</span><h2>كل الأنواع في مكان واحد</h2></div><span class="pill">مكتبتك الخاصة</span></div>
+ <div class="catalog-toolbar">
+  <div class="chips" id="catalogTypes"><button class="chip active" data-kind="all">الكل</button><button class="chip" data-kind="film">أفلام</button><button class="chip" data-kind="series">مسلسلات</button></div>
+  <button class="btn secondary add-title-btn" id="addCatalogItem">＋ إضافة عنوان</button>
+ </div>
+ <div class="genre-label">التصنيفات</div>
+ <div class="chips genre-chips" id="genreFilters">
+  <button class="chip active" data-genre="all">جميع التصنيفات</button>
+  <button class="chip" data-genre="action">أكشن</button><button class="chip" data-genre="adventure">مغامرات</button>
+  <button class="chip" data-genre="animation">أنيميشن</button><button class="chip" data-genre="comedy">كوميديا</button>
+  <button class="chip" data-genre="crime">جريمة</button><button class="chip" data-genre="documentary">وثائقي</button>
+  <button class="chip" data-genre="drama">دراما</button><button class="chip" data-genre="family">عائلي</button>
+  <button class="chip" data-genre="fantasy">فانتازيا</button><button class="chip" data-genre="history">تاريخي</button>
+  <button class="chip" data-genre="horror">رعب</button><button class="chip" data-genre="mystery">غموض</button>
+  <button class="chip" data-genre="romance">رومانسي</button><button class="chip" data-genre="scifi">خيال علمي</button>
+  <button class="chip" data-genre="sport">رياضي</button><button class="chip" data-genre="thriller">إثارة وتشويق</button>
+  <button class="chip" data-genre="war">حرب</button><button class="chip" data-genre="western">ويسترن</button>
+  <button class="chip" data-genre="musical">استعراضي / موسيقي</button><button class="chip" data-genre="reality">واقعي</button>
+  <button class="chip" data-genre="biography">سيرة ذاتية</button>
+ </div>
+ <div class="catalog-grid" id="catalogGrid"><div class="catalog-empty"><span>▣</span><b>ابدأ ببناء مكتبتك</b><small>أضيفي أفلامك ومسلسلاتك، وحددي المواسم والحلقات لكل مسلسل.</small></div></div>
+ <p class="fineprint">هذه المكتبة لتنظيم عناوينك وروابط المشاهدة القانونية. لا توفر بثاً أو حلقات محمية بحقوق النشر تلقائياً.</p>
+</section>
+<dialog id="catalogDialog">
+ <form id="catalogForm">
+  <button type="button" class="dialog-close" id="catalogClose">×</button><span class="kicker">إضافة إلى مكتبتك</span><h2>فيلم أو مسلسل جديد</h2>
+  <label>نوع المحتوى</label><select id="newKind"><option value="film">فيلم</option><option value="series">مسلسل</option></select>
+  <label>اسم العنوان</label><input id="newTitle" required maxlength="80" placeholder="اكتبي اسم الفيلم أو المسلسل">
+  <label>التصنيف</label><select id="newGenre">
+   <option value="action">أكشن</option><option value="adventure">مغامرات</option><option value="animation">أنيميشن</option><option value="comedy">كوميديا</option><option value="crime">جريمة</option><option value="documentary">وثائقي</option><option value="drama">دراما</option><option value="family">عائلي</option><option value="fantasy">فانتازيا</option><option value="history">تاريخي</option><option value="horror">رعب</option><option value="mystery">غموض</option><option value="romance">رومانسي</option><option value="scifi">خيال علمي</option><option value="sport">رياضي</option><option value="thriller">إثارة وتشويق</option><option value="war">حرب</option><option value="western">ويسترن</option><option value="musical">استعراضي / موسيقي</option><option value="reality">واقعي</option><option value="biography">سيرة ذاتية</option>
+  </select>
+  <div id="seriesFields" class="series-fields hidden"><label>عدد المواسم / الأجزاء</label><input id="newSeasons" type="number" min="1" max="30" value="1"><label>عدد الحلقات في كل موسم (افتراضي)</label><input id="newEpisodes" type="number" min="1" max="100" value="10"></div>
+  <label>رابط المشاهدة القانوني (اختياري)</label><input id="newUrl" type="url" placeholder="https://...">
+  <p class="dialog-hint">أضيفي فقط روابط تملك حق الوصول إليها أو مصادر تنشر المحتوى بشكل قانوني.</p>
+  <button class="btn primary full-btn" type="submit">حفظ في مكتبتي</button>
+ </form>
+</dialog>
 
-      <section class="search-panel hidden" id="searchPanel">
-        <label for="searchInput">ابحث داخل أقسام المنصة</label>
-        <input id="searchInput" type="search" placeholder="مثلاً: وثائقيات الطبيعة...">
-      </section>
-
-      <section class="section" id="discover">
-        <div class="section-heading"><div><p class="eyebrow">استكشف حسب النوع</p><h2>ماذا ترغب اليوم؟</h2></div><span class="section-count">06 أقسام</span></div>
-        <div class="category-grid" id="categoryGrid">
-          <button class="category-card c-movies" data-filter="movies"><span class="category-icon">▣</span><b>أفلام ومسلسلات</b><small>سينما ومحتوى مرئي</small><span class="card-arrow">↗</span></button>
-          <button class="category-card c-music" data-filter="music"><span class="category-icon">♫</span><b>الموسيقى</b><small>استمع واكتشف</small><span class="card-arrow">↗</span></button>
-          <button class="category-card c-podcast" data-filter="podcast"><span class="category-icon">◉</span><b>البودكاست</b><small>أفكار وحكايات</small><span class="card-arrow">↗</span></button>
-          <button class="category-card c-docs" data-filter="docs"><span class="category-icon">◎</span><b>وثائقيات</b><small>علوم وطبيعة وتاريخ</small><span class="card-arrow">↗</span></button>
-          <button class="category-card c-video" data-filter="video"><span class="category-icon">▶</span><b>فيديوهات</b><small>قنوات ومحتوى متنوع</small><span class="card-arrow">↗</span></button>
-          <button class="category-card c-library" data-filter="library"><span class="category-icon">▤</span><b>مكتبتي</b><small>روابطك ومفضلاتك</small><span class="card-arrow">↗</span></button>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><div><p class="eyebrow">اختيارات مجانية</p><h2>مصادر موثوقة</h2></div><span class="live-dot">مصادر قانونية</span></div>
-        <div class="source-list" id="sourceList">
-          <article class="source-item" data-tags="movies docs video">
-            <div class="source-logo logo-archive">A</div><div class="source-info"><b>Internet Archive</b><small>أفلام وأرشيف تاريخي ومواد عامة؛ تحقق من ترخيص كل عنوان.</small><span class="tag">أفلام · وثائقيات</span></div><a class="open-link" href="https://archive.org/details/movies" target="_blank" rel="noopener">افتح ↗</a>
-          </article>
-          <article class="source-item" data-tags="video docs">
-            <div class="source-logo logo-youtube">▶</div><div class="source-info"><b>YouTube</b><small>قنوات رسمية ووثائقيات وفيديوهات مجانية من ناشريها.</small><span class="tag">فيديو · وثائقيات</span></div><a class="open-link" href="https://www.youtube.com/" target="_blank" rel="noopener">افتح ↗</a>
-          </article>
-          <article class="source-item" data-tags="movies docs">
-            <div class="source-logo logo-plex">P</div><div class="source-info"><b>Plex</b><small>محتوى مجاني مدعوم بالإعلانات في المناطق التي تتوفر فيها الخدمة.</small><span class="tag">أفلام · تلفزيون</span></div><a class="open-link" href="https://www.plex.tv/watch-free/" target="_blank" rel="noopener">افتح ↗</a>
-          </article>
-          <article class="source-item" data-tags="music podcast">
-            <div class="source-logo logo-sound">♫</div><div class="source-info"><b>SoundCloud</b><small>اكتشف أعمالاً ومقاطع يتيح أصحابها الاستماع إليها مجاناً.</small><span class="tag">موسيقى · صوت</span></div><a class="open-link" href="https://soundcloud.com/" target="_blank" rel="noopener">افتح ↗</a>
-          </article>
-          <article class="source-item" data-tags="podcast">
-            <div class="source-logo logo-pod">◉</div><div class="source-info"><b>Apple Podcasts</b><small>اكتشاف برامج وحلقات بودكاست؛ قد تختلف الإتاحة حسب البرنامج.</small><span class="tag">بودكاست</span></div><a class="open-link" href="https://podcasts.apple.com/" target="_blank" rel="noopener">افتح ↗</a>
-          </article>
-          <article class="source-item" data-tags="music">
-            <div class="source-logo logo-jam">♪</div><div class="source-info"><b>Jamendo</b><small>موسيقى مستقلة؛ راجع شروط الترخيص قبل إعادة الاستخدام أو التنزيل.</small><span class="tag">موسيقى مستقلة</span></div><a class="open-link" href="https://www.jamendo.com/" target="_blank" rel="noopener">افتح ↗</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><div><p class="eyebrow">مساحتك الخاصة</p><h2>قائمتي المحفوظة</h2></div><span class="section-count" id="savedCount">0 عنصر</span></div>
-        <div class="saved-box" id="savedBox"><div class="empty-icon">♡</div><b>قائمتك تبدأ من هنا</b><p>أضف روابطك المفضلة باستخدام الزر أدناه، وستبقى محفوظة على هذا الجهاز.</p></div>
-        <button class="secondary-btn" id="addLinkBtn">＋ أضف رابطاً إلى مكتبتي</button>
-      </section>
-
-      <section class="section note-section">
-        <div class="note-icon">✦</div><div><b>خصوصيتك أولاً</b><p>لا يوجد حساب أو تتبع. تُحفظ المفضلة محلياً على جهازك. الروابط تفتح في مواقع مزودي المحتوى.</p></div>
-      </section>
-    </main>
-
-    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
-      <a href="#" class="active"><span>⌂</span><small>الرئيسية</small></a>
-      <a href="#discover"><span>◈</span><small>استكشف</small></a>
-      <a href="#sourceList"><span>▷</span><small>المصادر</small></a>
-      <a href="#savedBox"><span>♡</span><small>مكتبتي</small></a>
-    </nav>
-    <footer>MY MEDIA HUB <span>•</span> إصدار تجريبي 1.0</footer>
-  </div>
-
-  <dialog id="addDialog">
-    <form method="dialog" id="addForm">
-      <div class="dialog-head"><div><p class="eyebrow">مكتبتك الشخصية</p><h3>إضافة رابط</h3></div><button class="close-btn" value="cancel" aria-label="إغلاق">×</button></div>
-      <label for="itemTitle">اسم المحتوى</label><input id="itemTitle" required maxlength="70" placeholder="مثلاً: وثائقي المحيط">
-      <label for="itemUrl">رابط المصدر</label><input id="itemUrl" type="url" required placeholder="https://...">
-      <p class="dialog-hint">أضف روابط تملك حق الوصول إليها أو منشورة قانونياً.</p>
-      <button class="primary-btn full" id="saveItem" value="default">حفظ في مكتبتي</button>
-    </form>
-  </dialog>
-  <div class="toast" id="toast" role="status"></div>
-  <script src="app.js"></script>
-</body>
-</html>
+<section class="section player-section" id="player">
+ <div class="section-title"><div><span class="kicker">ملفاتك الشخصية</span><h2>مشغل الوسائط</h2></div><span class="pill">على جهازك</span></div>
+ <div class="player-box">
+  <div class="player-visual"><span class="equalizer">▂ ▅ ▃ ▇ ▄ ▆</span><span>LOCAL MEDIA PLAYER</span></div>
+  <div class="player-controls"><div><b id="fileName">اختر ملفاً من جهازك</b><small>يدعم الملفات التي يتيحها المتصفح</small></div><label class="btn secondary" for="mediaFile">اختيار ملف</label><input id="mediaFile" type="file" accept="audio/*,video/*"></div>
+  <video id="videoPlayer" controls playsinline class="native-player hidden"></video><audio id="audioPlayer" controls class="native-player hidden"></audio>
+  <p class="fineprint">يتم تشغيل الملف محلياً داخل المتصفح. لا يتم رفعه إلى خادم أو مشاركته.</p>
+ </div>
+</section>
+<section class="section" id="favorites">
+ <div class="section-title"><div><span class="kicker">محفوظاتك</span><h2>قائمتي</h2></div><span class="muted" id="favCount">0 عنصر</span></div>
+ <div class="favorites-box" id="favoritesBox"><span>♡</span><b>لم تحفظ أي محتوى بعد</b><small>اضغط القلب على أي بطاقة لإضافتها هنا.</small></div>
+</section>
+<section class="section setup">
+ <div class="setup-icon">⌘</div><div><span class="kicker">مكتبتك المنزلية</span><h2>لديك خادم Jellyfin؟</h2><p>يمكن ربط مكتبتك الخاصة في تطوير لاحق. نحتاج عنوان الخادم وإعدادات الوصول، ولا تطلبي مشاركة كلمة المرور هنا.</p><a href="https://jellyfin.org/" target="_blank" rel="noopener">تعرف على Jellyfin ↗</a></div>
+</section>
+</main>
+<nav class="bottom-nav"><a href="#" class="selected"><span>⌂</span><small>الرئيسية</small></a><a href="#mediaGrid"><span>◇</span><small>استكشف</small></a><a href="#player"><span>▷</span><small>المشغل</small></a><a href="#favorites"><span>♡</span><small>قائمتي</small></a></nav>
+<footer>MY MEDIA HUB 2.0 <span>·</span> المحتوى من مصادره الرسمية</footer>
+</div>
+<dialog id="detailDialog"><button class="dialog-close" id="detailClose">×</button><span class="kicker">تفاصيل المصدر</span><h2 id="detailTitle"></h2><p id="detailDescription"></p><div class="detail-source" id="detailSource"></div><a class="btn primary" id="detailLink" href="#" target="_blank" rel="noopener">زيارة المصدر ↗</a></dialog>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>

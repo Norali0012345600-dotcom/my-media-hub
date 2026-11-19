@@ -1,14 +1,13 @@
 {
   "name": "MY MEDIA HUB",
   "short_name": "MEDIA HUB",
-  "description": "مركز ترفيه شخصي لاكتشاف المحتوى القانوني وتنظيم مكتبتك",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#090d18",
-  "theme_color": "#090d18",
+  "background_color": "#080b14",
+  "theme_color": "#080b14",
   "icons": [
     {
       "src": "icon.svg",
